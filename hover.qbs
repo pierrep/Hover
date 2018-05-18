@@ -12,6 +12,20 @@ Project{
         name: { return FileInfo.baseName(path) }
 
         files: [
+            "src/dsp/crush/crush.cpp",
+            "src/dsp/crush/crush.h",
+            "src/dsp/foldbackDistortion/foldBackDistortion.cpp",
+            "src/dsp/foldbackDistortion/foldBackDistortion.h",
+            "src/dsp/phaser/phasor.cpp",
+            "src/dsp/phaser/phasor.h",
+            "src/dsp/reverb/allpass.cpp",
+            "src/dsp/reverb/allpass.hpp",
+            "src/dsp/reverb/comb.cpp",
+            "src/dsp/reverb/comb.hpp",
+            "src/dsp/reverb/denormals.h",
+            "src/dsp/reverb/revmodel.cpp",
+            "src/dsp/reverb/revmodel.hpp",
+            "src/dsp/reverb/tuning.h",
             'src/DeclickedFLoat.h',
             'src/InteractivePad.h',
             'src/PadEvent.cpp',
@@ -35,10 +49,7 @@ Project{
         ]
 
         of.addons: [
-            'ofxCvKalman',
-            'ofxDSP',
-            'ofxKinect',
-//            'ofxLeapMotion',
+            'ofxLeapMotion',
             'ofxMidi',
             'ofxMSAInteractiveObject',
             'ofxOpenCv',

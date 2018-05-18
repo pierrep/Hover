@@ -6,21 +6,22 @@
 		<file>SampleWithReverb</file>
 		<sample>beat.wav</sample>
 		<state>0</state>
-		<volume>0.12</volume>
+		<volume>0.992593</volume>
+		<FX1send>0.111111</FX1send>
 		<parameters>
 			<param0>0</param0>
-			<param1>-0.400002</param1>
-			<param2>-21.4</param2>
+			<param1>-0.222221</param1>
+			<param2>-59.5556</param2>
 			<param3>7.327</param3>
 			<param4>13226.7</param4>
 			<param5>221.633</param5>
 			<param6>0.01717</param6>
 			<param7>6400</param7>
-			<param8>60.6333</param8>
+			<param8>141.133</param8>
 			<param9>0.29</param9>
 			<param10>0.696667</param10>
 			<param11>0.686667</param11>
-			<param12>0.993333</param12>
+			<param12>0.79</param12>
 		</parameters>
 	</pad>
 	<pad>
@@ -30,7 +31,8 @@
 		<file>Sampler</file>
 		<sample>BassLoop3.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.0518519</volume>
+		<FX1send>0.162963</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -42,7 +44,8 @@
 		<file>Sampler</file>
 		<sample>basherLoop1.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.7</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -54,7 +57,8 @@
 		<file>Sampler</file>
 		<sample>GlitchyTextures_SP01.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.374074</volume>
+		<FX1send>0.0481481</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -67,6 +71,7 @@
 		<sample>GlitchyTextures_SP05.wav</sample>
 		<state>0</state>
 		<volume>0.5</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -78,7 +83,8 @@
 		<file>Sampler</file>
 		<sample>GlitchyTextures_SP10.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.544444</volume>
+		<FX1send>0.262963</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -90,7 +96,8 @@
 		<file>StereoDelaySynth</file>
 		<sample/>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.996296</volume>
+		<FX1send>0.00740741</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -102,11 +109,12 @@
 		<file>FMDroneSynth</file>
 		<sample/>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.05</volume>
+		<FX1send>0.785185</FX1send>
 		<parameters>
 			<param0>0</param0>
 			<param1>29.4</param1>
-			<param2>0.996667</param2>
+			<param2>0.3</param2>
 			<param3>0.98</param3>
 		</parameters>
 	</pad>
@@ -117,19 +125,20 @@
 		<file>ReverbTestSynth</file>
 		<sample/>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.374074</volume>
+		<FX1send>0.0037037</FX1send>
 		<parameters>
 			<param0>0</param0>
-			<param1>-39.8</param1>
-			<param2>-0.200001</param2>
-			<param3>4.687</param3>
-			<param4>8800</param4>
+			<param1>-0.222221</param1>
+			<param2>-10.2222</param2>
+			<param3>9.92667</param3>
+			<param4>16148.1</param4>
 			<param5>115.833</param5>
-			<param6>0.01717</param6>
-			<param7>10346.7</param7>
+			<param6>0.0380222</param6>
+			<param7>17570.4</param7>
 			<param8>118.9</param8>
-			<param9>0.5</param9>
-			<param10>0.5</param10>
+			<param9>0.996296</param9>
+			<param10>0.662963</param10>
 			<param11>0.5</param11>
 			<param12>0.77</param12>
 		</parameters>
@@ -141,10 +150,11 @@
 		<file>FilteredNoiseSynth</file>
 		<sample/>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.248148</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
-			<param1>0.576667</param1>
+			<param1>0.714815</param1>
 			<param2>9.96667</param2>
 		</parameters>
 	</pad>
@@ -155,7 +165,8 @@
 		<file>SynaesthesiaSynth</file>
 		<sample/>
 		<state>0</state>
-		<volume>0.0833333</volume>
+		<volume>0.755556</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -167,14 +178,15 @@
 		<file>CompressorSynth</file>
 		<sample/>
 		<state>0</state>
-		<volume>0.116667</volume>
+		<volume>0.996296</volume>
+		<FX1send>0.0666667</FX1send>
 		<parameters>
 			<param0>0</param0>
-			<param1>-46.6</param1>
-			<param2>7.10383</param2>
-			<param3>0.05</param3>
-			<param4>0.0286916</param4>
-			<param5>8.76</param5>
+			<param1>-32.8889</param1>
+			<param2>52.3383</param2>
+			<param3>0.0446541</param3>
+			<param4>0.0156015</param4>
+			<param5>29.0667</param5>
 			<param6>0</param6>
 		</parameters>
 	</pad>
@@ -185,7 +197,8 @@
 		<file>Sampler</file>
 		<sample>A1_Circle.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.307407</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -197,7 +210,8 @@
 		<file>Sampler</file>
 		<sample>A1_Pyramid.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.21</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -209,7 +223,8 @@
 		<file>Sampler</file>
 		<sample>A1_Triangle1.wav</sample>
 		<state>0</state>
-		<volume>0.5</volume>
+		<volume>0.937037</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
 			<param0>0</param0>
 		</parameters>
@@ -220,10 +235,11 @@
 		<name>TriCircle</name>
 		<file>Sampler</file>
 		<sample>A1_TriangleCircle.wav</sample>
-		<state>1</state>
-		<volume>0.5</volume>
+		<state>0</state>
+		<volume>0.76</volume>
+		<FX1send>0.5</FX1send>
 		<parameters>
-			<param0>0.5</param0>
+			<param0>0</param0>
 		</parameters>
 	</pad>
 </layout>

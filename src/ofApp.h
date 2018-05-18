@@ -5,12 +5,13 @@
 #include "ofxTonic.h"
 #include "ofxMidi.h"
 #include "DeclickedFLoat.h"
-#include "ofxDSP.h"
-#include "SoundEngine.h"
 
-#ifdef USE_LEAP_MOTION
+#ifdef USE_LEAP
 #include "ofxLeapMotion.h"
 #endif
+
+#include "dsp/crush/crush.h"
+#include "SoundEngine.h"
 
 using namespace Tonic;
 
@@ -48,6 +49,7 @@ class ofApp : public ofBaseApp, public ofxMidiListener {
 		void onPadEvent(PadEventArgs &e);
 		void audioOut(float* output, int bufferSize, int nChannels);
 		void newMidiMessage(ofxMidiMessage& midiMessage);
+		void updateLeap();
 		void setupAudio();
 		void setupMidi();
 		void saveSet();
@@ -84,19 +86,20 @@ class ofApp : public ofBaseApp, public ofxMidiListener {
         float grainLength;
 
         /** leap motion */
-        #ifdef USE_LEAP_MOTION
+        #ifdef USE_LEAP
         ofxLeapMotion leap;
         vector <ofxLeapMotionSimpleHand> simpleHands;
-        #endif
         vector <int> fingersFound;
         float leapx, leapy;
+        #endif
+        bool bDoLeap;
         bool bLeapInited;
 
         /** layout **/
         int marginSpacer;
 
         /** FX **/
-        ofxCrush crushFX;
+        crush crushFX;
         float crushFXvol;
         float crushFXamount;
 

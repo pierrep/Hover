@@ -1,4 +1,7 @@
 bin/hover_debug
 bin/hover
 bin/data/samples
+bin/Hover
+bin/Hover_debug
+build/
 

@@ -15,6 +15,7 @@ public:
     ControlParameter volume = addParameter("volume", 0.5f).displayName("Volume");
 
 	string samplename = ofApp::sampleToLoad;
+    cout << "samplename = " << samplename << endl;
 
 	SampleTable buf = loadAudioFile(samplename);
 	BufferPlayer player;

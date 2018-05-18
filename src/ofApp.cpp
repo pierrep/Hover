@@ -37,55 +37,20 @@ void ofApp::setup(){
     setupAudio();
     setupMidi();
 
+    bDoLeap = false;    
     bLeapInited = false;
-#ifdef USE_LEAP_MOTION
+    #ifdef USE_LEAP
     bLeapInited = leap.open();
-#endif
+    #endif
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    if(bLeapInited) {
-        #ifdef USE_LEAP_MOTION
-        fingersFound.clear();
-        simpleHands = leap.getSimpleHands();
-        if( leap.isFrameNew() && simpleHands.size() ){
-
-            leap.setMappingX(-230, 230, 0, ofGetWidth());
-            leap.setMappingY(90, 490, 0, ofGetHeight());
-            leap.setMappingZ(-150, 150, -200, 200);
-        }
-        leap.markFrameAsOld();
-
-        for(int i = 0; i < simpleHands.size(); i++)
-        {
-            // simpleHands[i].debugDraw();
-            for(int j = 0; j < simpleHands[i].fingers.size(); j++){
-                      // ofCircle(simpleHands[i].fingers[j].pos,20);
-            }
-            if(simpleHands[i].fingers.size() >= 1)
-            {
-                leapx = simpleHands[i].fingers[0].pos.x ;
-                leapy = simpleHands[i].fingers[0].pos.y ;
-                leapx = ofClamp(leapx,0,ofGetWidth());
-                leapx = ofClamp(leapy,0,ofGetHeight());
-
-                float x = leapx;
-                float y = leapy;
-
-                //cout << "leapx = " << leapx << " leapy" << leapy << endl;
-
-                speed = ((double ) x / ofGetWidth() * 4.0) - 2.0;
-                speed = ofClamp(speed,-2,2);
-                grainLength = ((double) y / ofGetHeight() * 0.5) + 0.0001;
-                grainLength = ofClamp(grainLength,0.0001,0.5);
-                rate = ((double) x / ofGetWidth() * 2.0);
-                rate = ofClamp(rate,0,2);
-            }
-        }
-        #endif
+    if((bDoLeap) && (bLeapInited)) {
+		updateLeap();
     }
+
 
 }
 
@@ -207,6 +172,8 @@ void ofApp::keyPressed(int key){
     if(key == 's') saveSet();
 
     if(key == ' ') {
+        //bDoLeap = !bDoLeap;
+        //pads[selectedPad]->bSelected = !(pads[selectedPad]->bSelected);
         if(pads[selectedPad]->bSelected) {
             pads[selectedPad]->onPress(0,0,0);
         }
@@ -456,7 +423,8 @@ void ofApp::loadLayoutXML(){
 
                 InteractivePad::AudioType audioType;
                 cout << "*---------------------------------------------------------------" << endl;
-                cout << "type: " << type << "\tname: " << name << "\t\tfile: " <<  filename << endl;
+
+                cout << "type: " << type << "\t\tname: " << name << "\t\tfile: " <<  filename << endl;
 
                 if(type == "synth")
                 {
@@ -490,12 +458,13 @@ void ofApp::loadLayoutXML(){
                     numSynths++;
 
                 }
-
+                if(type != "empty") {
                 InteractivePad *p = new InteractivePad(name,numPads,instrumentId,padType,audioType,filename,samplename,volume);
                 p->bIsOn = bIsOn;
                 pads.push_back(p);
                 engine.getFX1Send(numPads).value(fx1send);
                 numPads++;
+                }
 
 
             }
@@ -504,7 +473,6 @@ void ofApp::loadLayoutXML(){
             pads[selectedPad]->bSelected = true;
         }
         cout << "*---------------------------------------------------------------" << endl;
-
 	}else{
 		cout << "Failed to load layout.xml" << endl;
 	    std::exit(-1);
@@ -527,13 +495,15 @@ void ofApp::setupAudio()
     ///aux sends
     crushFX.setValues(8,0.5f);
     auxsend1.resize(pads.size());
+	//soundStream.listDevices();
 	//soundStream.setDeviceID(1);
     bool bInited = soundStream.setup(this, 2, 0, sampleRate, bufferSize, 4);
     if(!bInited) {
         ofLogError() << "Failed to open audio. Is Jack running?";
-        soundStream.listDevices();
+        soundStream.printDeviceList();
     }
-	ofSleepMillis(500);
+
+    ofSleepMillis(200);
 	masterVolume = 0.5f;
 }
 
@@ -609,6 +579,48 @@ void ofApp::saveSet()
     }
 
     xml.save("layout.xml");
+}
+
+void ofApp::updateLeap()
+{
+#ifdef USE_LEAP
+	fingersFound.clear();
+	simpleHands = leap.getSimpleHands();
+	if( leap.isFrameNew() && simpleHands.size() ){
+
+		leap.setMappingX(-230, 230, 0, ofGetWidth());
+		leap.setMappingY(90, 490, 0, ofGetHeight());
+		leap.setMappingZ(-150, 150, -200, 200);
+	}
+	leap.markFrameAsOld();
+
+	for(int i = 0; i < simpleHands.size(); i++){
+	   // simpleHands[i].debugDraw();
+		for(int j = 0; j < simpleHands[i].fingers.size(); j++){
+				  // ofCircle(simpleHands[i].fingers[j].pos,20);
+		}
+
+		if(simpleHands[i].fingers.size() >= 1) {
+			leapx = simpleHands[i].fingers[0].pos.x ;
+			leapy = simpleHands[i].fingers[0].pos.y ;
+			leapx = ofClamp(leapx,0,ofGetWidth());
+			leapx = ofClamp(leapy,0,ofGetHeight());
+
+	float x = leapx;
+	float y = leapy;
+
+	//cout << "leapx = " << leapx << " leapy" << leapy << endl;
+
+	speed = ((double ) x / ofGetWidth() * 4.0) - 2.0;
+	speed = ofClamp(speed,-2,2);
+	grainLength = ((double) y / ofGetHeight() * 0.5) + 0.0001;
+	grainLength = ofClamp(grainLength,0.0001,0.5);
+	rate = ((double) x / ofGetWidth() * 2.0);
+	rate = ofClamp(rate,0,2);
+
+		}
+	}
+#endif	
 }
 
 //--------------------------------------------------------------

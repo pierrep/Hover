@@ -1,9 +1,7 @@
-ofxCvKalman
-ofxDSP
-ofxKinect
 ofxLeapMotion
 ofxMidi
 ofxMSAInteractiveObject
 ofxOpenCv
 ofxOsc
+#ofxTonicLib
 ofxTonic

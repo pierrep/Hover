@@ -36,6 +36,8 @@ public:
 
 
 	string samplename = ofApp::sampleToLoad;
+    cout << "samplename = " << samplename << endl;
+
 	SampleTable buf = loadAudioFile(samplename);
 	BufferPlayer player;
     //player.setBuffer(buf).loop(true).trigger(1).playReversed(true);
